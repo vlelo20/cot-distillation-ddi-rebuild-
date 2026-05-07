@@ -1,0 +1,25 @@
+{
+  "mode": "generate",
+  "script": "/scratch/vlelo/ddiproject/scripts/step12_pilot_2x2.py",
+  "git_commit": "unknown",
+  "timestamp_utc": "2026-05-07T17:17:13.375332+00:00",
+  "library_versions": {
+    "torch": "2.11.0",
+    "vllm": "0.20.0",
+    "transformers": "5.6.2"
+  },
+  "params": {
+    "model": "Qwen/Qwen3-8B",
+    "temperature": 0.0,
+    "max_tokens": 1024,
+    "seed": 42,
+    "max_model_len": 8192,
+    "thinking_disabled": false,
+    "n_generated_now": 1016,
+    "elapsed_seconds": 273.54462003707886
+  },
+  "files": {
+    "prompts": "/scratch/vlelo/ddiproject/pilot/pilot_prompts.jsonl",
+    "traces": "/scratch/vlelo/ddiproject/pilot/pilot_traces.jsonl"
+  }
+}

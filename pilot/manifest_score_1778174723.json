@@ -1,0 +1,17 @@
+{
+  "mode": "score",
+  "script": "/scratch/vlelo/ddiproject/scripts/step12_pilot_2x2.py",
+  "git_commit": "unknown",
+  "timestamp_utc": "2026-05-07T17:25:23.439498+00:00",
+  "library_versions": {
+    "torch": "2.11.0",
+    "vllm": "0.20.0",
+    "transformers": "5.6.2"
+  },
+  "params": {},
+  "files": {
+    "traces": "/scratch/vlelo/ddiproject/pilot/pilot_traces.jsonl",
+    "scored": "/scratch/vlelo/ddiproject/pilot/pilot_scored.jsonl",
+    "summary": "/scratch/vlelo/ddiproject/pilot/pilot_summary.json"
+  }
+}

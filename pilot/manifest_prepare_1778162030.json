@@ -1,0 +1,22 @@
+{
+  "mode": "prepare",
+  "script": "/scratch/vlelo/ddiproject/scripts/step12_pilot_2x2.py",
+  "git_commit": "unknown",
+  "timestamp_utc": "2026-05-07T13:53:50.591385+00:00",
+  "library_versions": {
+    "torch": "2.11.0",
+    "vllm": "0.20.0",
+    "transformers": "5.6.2"
+  },
+  "params": {
+    "budget": 500,
+    "floor": 3,
+    "head_cap": 15,
+    "seed": 42,
+    "pathway_cache": "retrieved_examples_pathway_test_pilot500_v2.json"
+  },
+  "files": {
+    "prompts": "/scratch/vlelo/ddiproject/pilot/pilot_prompts.jsonl",
+    "audit": "/scratch/vlelo/ddiproject/pilot/pilot_prepare_audit.json"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "total_traces": 1016,
+  "conditions": {
+    "A_tan_nohints": {
+      "n": 254,
+      "exact_match": 0.7165,
+      "cluster_match": 0.7165,
+      "direction_accuracy_adjudicable": 0.7308,
+      "direction_accuracy_all": 0.2244,
+      "verdict_counts": {
+        "ambiguous": 176,
+        "correct": 57,
+        "incorrect": 21
+      },
+      "verdict_pct": {
+        "ambiguous": 69.3,
+        "correct": 22.4,
+        "incorrect": 8.3
+      },
+      "n_unparseable_label": 72,
+      "median_prompt_tokens": 3464.5,
+      "median_generated_tokens": 1024.0
+    },
+    "B_pwy_nohints": {
+      "n": 254,
+      "exact_match": 0.7047,
+      "cluster_match": 0.7047,
+      "direction_accuracy_adjudicable": 0.8082,
+      "direction_accuracy_all": 0.2323,
+      "verdict_counts": {
+        "ambiguous": 181,
+        "correct": 59,
+        "incorrect": 14
+      },
+      "verdict_pct": {
+        "ambiguous": 71.3,
+        "correct": 23.2,
+        "incorrect": 5.5
+      },
+      "n_unparseable_label": 74,
+      "median_prompt_tokens": 3567.5,
+      "median_generated_tokens": 1024.0
+    },
+    "C_tan_hints": {
+      "n": 254,
+      "exact_match": 0.7087,
+      "cluster_match": 0.7087,
+      "direction_accuracy_adjudicable": 1.0,
+      "direction_accuracy_all": 0.3425,
+      "verdict_counts": {
+        "correct": 87,
+        "ambiguous": 167
+      },
+      "verdict_pct": {
+        "correct": 34.3,
+        "ambiguous": 65.7
+      },
+      "n_unparseable_label": 73,
+      "median_prompt_tokens": 3560.0,
+      "median_generated_tokens": 1024.0
+    },
+    "D_pwy_hints": {
+      "n": 254,
+      "exact_match": 0.7244,
+      "cluster_match": 0.7244,
+      "direction_accuracy_adjudicable": 0.9787,
+      "direction_accuracy_all": 0.3622,
+      "verdict_counts": {
+        "ambiguous": 160,
+        "correct": 92,
+        "incorrect": 2
+      },
+      "verdict_pct": {
+        "ambiguous": 63.0,
+        "correct": 36.2,
+        "incorrect": 0.8
+      },
+      "n_unparseable_label": 70,
+      "median_prompt_tokens": 3657.0,
+      "median_generated_tokens": 1024.0
+    }
+  }
+}
