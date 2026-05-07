@@ -607,7 +607,7 @@ Metrics:
 2. `cluster_match` — predicted label's `l2` cluster equals gold `l2` cluster
 3. `direction_verdict` — outcome-polarity alignment via Step 11d scorer
 
-**Pilot results (run 2, n=254 stratified across 42 clusters, 1016 traces total):**
+**Pilot results (initial run, n=254 stratified across 42 clusters, 1016 traces, max_tokens=3072):**
 
 | Condition          | Exact match | Cluster match | Outcome-polarity alignment (adjudicable) | Wrong-direction (% of total) |
 |--------------------|-------------|---------------|------------------------------------------|------------------------------|
@@ -616,23 +616,197 @@ Metrics:
 | C · Tanimoto, hints    | 96.9%       | 96.9%         | 98.7%                                    | **0.0%**                     |
 | D · Pathway, hints     | 96.5%       | 96.5%         | 98.0%                                    | **0.8%**                     |
 
-**Verdict distribution per condition (run 2):**
+These are the *initial run* numbers. They are preserved here for transparency because Steps 13–17 below revealed schema-tagging bugs that affected per-cluster interpretation; the final headline numbers (after schema correction and targeted regeneration) are reported in **Step 17**.
+
+**Verdict distribution per condition (initial run):**
 - A: correct 22.4% / incorrect 8.3% / ambiguous 69.3%
 - B: correct 23.2% / incorrect 5.5% / ambiguous 71.3%
 - C: correct 34.3% / incorrect 0.0% / ambiguous 65.7%
 - D: correct 36.2% / incorrect 0.8% / ambiguous 63.0%
 
-**Manual audit of 5 hint-condition flagged "incorrect" traces:** 4 of 5 are surface-vs-outcome phrasing artifacts where the trace explicitly states the correct outcome direction (e.g. "thereby increasing the hypoglycemic effect") but contains earlier "reduce/diminish" language from describing intermediate mechanism. The fifth is a single token-budget edge case (trace truncated mid-Summary). Zero genuine biology errors.
-
-**Headline:** hierarchy hints reduce scorer-flagged wrong-direction commitments by an order of magnitude or more. Pathway retrieval gives a small consistent baseline gain (+1.2pt exact, +3.8pt direction); the gain shrinks once hints lift alignment toward the ceiling.
+**Initial headline:** hierarchy hints reduce scorer-flagged wrong-direction commitments by an order of magnitude or more. (Refined and confirmed in Step 17 after schema correction.)
 
 **Outputs:**
 - `pilot/pilot_prompts.jsonl` — 1,016 prompts with full provenance
-- `pilot/pilot_traces.jsonl` — clean run 2 traces
-- `pilot/pilot_traces_run1_thinking_max1024.jsonl` — preserved evidence of run 1
+- `pilot/pilot_traces.jsonl` — clean run traces (final, post-Step 17 merge)
+- `pilot/pilot_traces_run1_thinking_max1024.jsonl` — preserved evidence of run 1 (truncation diagnostic)
 - `pilot/pilot_scored.jsonl` — per-trace verdicts
-- `pilot/pilot_summary.json` — aggregate metrics
+- `pilot/pilot_summary.json` — aggregate metrics (final, post-Step 17)
 - `pilot/manifest_*.json` — full provenance for each mode (prepare / generate / score)
+
+---
+
+## Step 13 — Per-cluster breakdown of the pilot
+
+**Goal:** check whether the aggregate wrong-direction reduction in Step 12 is uniform across the 42 covered clusters or concentrated in a subset, and cross-check the documented imperfect-cluster list against actual pilot coverage.
+
+**Script:** `scripts/step13_per_cluster.py`
+
+```bash
+cd pilot
+python ../scripts/step13_per_cluster.py
+```
+
+**Inputs:** `pilot/pilot_scored.jsonl` (Step 12 output, post Step 17 corrections).
+
+**Method:** group scored traces by `(gold_l2, condition)`. Per group, compute `n`, exact-match rate, cluster-match rate, outcome-aligned rate (correct + ambiguous, the adjusted alignment metric), and wrong-direction rate (incorrect / n). Also aggregate two macro groups: clusters in the documented imperfect list vs. the rest.
+
+**Findings (post-Step 17 numbers):**
+
+The aggregate 13.8% / 9.1% no-hint wrong-direction rate is **not uniform**. Two clusters drive most of it (the third and fourth had their polarity tags fixed at Step 16):
+
+| Cluster (n=15 each) | A · tan, no hints | B · pwy, no hints | C · tan, hints | D · pwy, hints |
+|---|---|---|---|---|
+| `metabolism_decrease`  | 80.0% | 46.7% | 6.7% | 6.7% |
+| `bp_increase`          | 33.3% | 33.3% | 0.0% | 6.7% |
+| `metabolism_increase`† | 53.3% | 13.3% | 0.0% | 0.0% |
+| `efficacy_decrease`†   | 0.0%  | 0.0%  | 0.0% | 0.0% |
+
+† clusters whose polarity tag was corrected at Step 16 and whose C/D prompts were regenerated with the corrected hint at Step 17.
+
+The remaining 38 clusters in the pilot show ≤20% wrong-direction in any condition; most show 0%.
+
+**Documented imperfect-cluster list — coverage check:**
+
+| Cluster | n in pilot | Wrong-dir A / B / C / D |
+|---|---|---|
+| `cns_depression`         | 15 | 0% / 0% / 0% / 0% |
+| `thrombosis`             |  9 | 11% / 0% / 0% / 0% |
+| `myopathy`               |  1 | 0% / 0% / 0% / 0% |
+| `electrolyte_imbalance`  |  1 | 0% / 0% / 0% / 0% |
+| `vasoactivity`           |  0 | (not in pool) |
+| `gi_effects_increase`    |  0 | (not in pool) |
+
+**Only two of the six are powered for inference.** The imperfect-cluster hypothesis remains **untested for four of six**.
+
+**Outputs:**
+- `pilot/per_cluster_breakdown.json` — full per-(cluster, condition) counts
+- stdout summary table
+
+---
+
+## Step 14 — Confusion analysis on the misses
+
+**Goal:** when an exact-match miss occurs, is the predicted label a sibling within the same cluster (cluster-match miss) or a cross-cluster miss? And among cross-cluster misses, are predictions concentrated on specific gold→pred clusters?
+
+**Script:** `scripts/step14_confusion.py`
+
+**Findings:**
+- `within_cluster_miss%` is **0.0% in every condition.** When the model misses exact-match, it never picks a sibling label.
+- All 36 (initial run) cross-cluster misses had `pred_label=None` with `finish_reason="length"` — they are *truncations*, not classifications. **Of completed traces, exact-match is effectively 100%.**
+- Several truncated traces show the model arguing with the gold label (*"But the label says... This is conflicting"*) before running out of tokens, demonstrating the teacher engages skeptically with privileged supervision rather than parroting it.
+
+This finding motivated the `max_tokens=4096` bump in Step 17 regeneration (previously 3072 in the initial run, which had been bumped from 2048 in an even earlier run). At 4096, 40 of 193 regenerated traces still hit the length limit; truncation remains a partial confound on exact-match, less so on outcome-alignment.
+
+**Outputs:** `pilot/confusion_analysis.json`
+
+---
+
+## Step 15 — Manual audit of the "ambiguous" verdict bucket
+
+**Goal:** the regex-based direction scorer (Step 11d) flags ~50–60% of traces in each condition as "ambiguous" when both increase- and decrease-language appear. Quantify what fraction of this bucket is benign PK-reversal phrasing versus genuine model uncertainty.
+
+**Script:** `scripts/step15_ambiguous_audit.py` — random-seed-stratified sampling, 8 ambiguous traces per condition (32 total), seed=42.
+
+**Method:** Each sampled trace was manually classified as:
+- *PK reversal scoring artifact* — Summary commits to correct outcome; mechanism description uses opposite surface verb (e.g. "induces CYP3A4, which increases the metabolism … leading to a decrease in serum concentration")
+- *Truncation, heading correct* — `finish_reason="length"`, partial reasoning visible, direction was clearly going to land correct
+- *Truncation, arguing with gold* — `finish_reason="length"`, model explicitly disputed the gold label
+- *Schema bug* — gold label tagging was actually wrong
+
+**Audit results (n=32):**
+
+| Category | Count | % of ambiguous |
+|---|---|---|
+| PK reversal scoring artifact   | 18 | 56% |
+| Truncation, heading correct    |  7 | 22% |
+| Truncation, arguing with gold  |  5 | 16% |
+| Schema bug                     |  2 |  6% |
+
+**Caveat:** n=32 is enough to surface failure modes but not large enough to support a rigorous prevalence estimate over the whole ~400-trace ambiguous bucket. The two schema-bug cases are what triggered Step 16.
+
+**Outputs:** `pilot/ambiguous_audit_sample.txt` (the audited traces, with summaries pulled out for readability)
+
+---
+
+## Step 16 — Hierarchy schema consistency check
+
+**Goal:** the ambiguous audit (Step 15) surfaced two traces whose gold label appeared mistagged. Run a systematic name-vs-tag consistency scan over the entire `hierarchy_map.json`.
+
+**Script:** `scripts/step16_polarity_scan.py`
+
+**Method:** two checks.
+- **Check A** — *intra-cluster mixed polarity.* Same `l2`, different `polarity` values among members. Always a bug.
+- **Check B** — *name-vs-tag mismatch.* For clusters with directional suffix (`_increase`, `_decrease`), check that polarity matches expected. Special rule for PK exposure-affecting clusters: `metabolism_increase` and `metabolism_decrease` invert (more metabolism → less exposure → opposite outcome polarity).
+
+**Findings:**
+- Check A: 0 mixed-polarity clusters.
+- Check B: **5 name-vs-tag mismatches.** Plus one outlier surfaced in the overview table (`infection` had `polarity=n/a`).
+
+| Y  | Cluster | Was | Should be | Reason |
+|----|---|---|---|---|
+| 5  | `efficacy_decrease`  | increase | decrease | efficacy goes down |
+| 7  | `metabolism_increase` | increase | decrease | more metab → less exposure (inversion) |
+| 60 | `bp_decrease`        | increase | decrease | more antihypertensive → BP down |
+| 114 | `bp_decrease`       | increase | decrease | less hypertensive → BP down |
+| 134 | `bp_decrease`       | increase | decrease | hypertension risk decreased |
+| 39 | `infection`          | n/a      | increase | risk of infection increased |
+
+These are 6 of 166 labels — a 3.6% schema error rate. The bugs likely originated in the polarity-fixes pass (Step 8e); they survived because the `_decrease`/`_increase` cluster name suffix is not the same as outcome polarity for all clusters (the inversion rule for PK clusters is the most common source).
+
+**Outputs:** `pilot/polarity_scan_report.json`
+
+---
+
+## Step 17 — Apply schema corrections, patch cached fields, regenerate affected traces
+
+**Goal:** correct the six schema bugs, refresh the pilot evaluation against the corrected hierarchy, and regenerate the affected hint-condition traces (whose prompts contained the buggy polarity hints) so that C and D conditions reflect "correct hint" measurement rather than "buggy hint" measurement.
+
+**Scripts:**
+- `scripts/step17_polarity_fix.py` — applies the 6 corrections to `processed_v2/hierarchy_map.json`, with timestamped backup, pre-flight assertions on expected old values, and a JSON change log.
+- `scripts/step17b_patch_polarity_in_traces.py` — patches the cached `gold_polarity` field in `pilot_prompts.jsonl` and `pilot_traces.jsonl` (which carry the field forward from Step 12 prepare). Without this, re-scoring would still see the buggy polarity values.
+
+**Targeted regeneration:** rather than regenerate all 1,016 traces, build a subset:
+- 72 traces whose **prompt text would have changed** under the corrected hints (C/D conditions for the 6 buggy labels, restricted to those that appeared in the pilot pool — Y=114, Y=134 didn't)
+- 138 traces with `finish_reason="length"` from the initial run (truncation cases)
+- 17 trace overlap → **193 unique prompts** to regenerate
+
+Regeneration submitted via SLURM (`run_step12_regen.sh`) with `max_tokens=4096` (up from 3072) on 1× H100. Wall time ~3 minutes. New traces merged into `pilot_traces.jsonl` keyed on `(pair_uid, condition)`; the remaining 823 traces from the original run are kept verbatim.
+
+**Findings — schema-sensitivity:**
+
+The intermediate state (corrected schema, but C/D traces still containing buggy hints in their prompts) showed a striking pattern. For the four buggy labels with adequate pilot coverage:
+
+| Cluster | C (buggy hint, before regen) | C (correct hint, after regen) |
+|---|---|---|
+| `efficacy_decrease`   | 40.0% wrong-dir | 0.0% |
+| `metabolism_increase` | 26.7% wrong-dir | 0.0% |
+| `infection` (n=4)     | 50.0% wrong-dir | 0.0% |
+| `bp_decrease` (n=2)   | 50.0% wrong-dir | 0.0% |
+
+The teacher's outcome commitment tracks the privileged supervision signal **faithfully and 1:1**. This is the desired behavior of label-conditioned distillation but means **schema correctness is now upstream of trace correctness in this pipeline**. We treat this as a structural property worth reporting in its own right.
+
+**Final aggregate after fix + regen:**
+
+| Cond | exact% | cluster% | aln% | wrong-dir% |
+|---|---|---|---|---|
+| A · Tanimoto, no hints | 96.5 | 96.5 | 86.2 | 13.8 |
+| B · Pathway, no hints  | 98.0 | 98.0 | 90.9 | 9.1  |
+| C · Tanimoto, hints    | 98.8 | 98.8 | **99.2** | **0.8** |
+| D · Pathway, hints     | 98.8 | 98.8 | **98.5** | **1.6** |
+
+The "order of magnitude" headline survives the correction; exact-match also rose from 95.7% (initial run) to 96.5%–98.8% across conditions, mostly attributable to truncation reduction at `max_tokens=4096`.
+
+**Outputs:**
+- `processed_v2/hierarchy_map.json.bak_step17_*.json` — backup
+- `pilot/polarity_fix_log.json` — change log
+- `pilot/regen_keys.txt` — 72 polarity-affected keys
+- `pilot/regen_keys_v2.txt` — 193 union keys (polarity ∪ truncation)
+- `pilot/pilot_prompts_FULL.jsonl`, `pilot/pilot_traces_FULL.jsonl` — pre-regen archives
+- `pilot/pilot_traces_regen_v2.jsonl` — new traces from the 193-prompt regen
+- `pilot/pilot_traces.jsonl` — merged final state
+- `run_step12_regen.sh` — SLURM script for the regen
+- `logs/step12_regen_*.out` — full SLURM log of the regen
 
 ---
 
