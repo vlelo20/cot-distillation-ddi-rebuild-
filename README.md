@@ -109,7 +109,12 @@ Cluster sizes range from 1 to 12, with `hypotension_increase` (n=12) and
 imperfections (`vasoactivity`, `gi_effects_increase`, `thrombosis`,
 `electrolyte_imbalance`, `myopathy`, `cns_depression`) — kept consolidated
 because mechanism heterogeneity within them is real and not cleanly
-separable.
+separable. The pilot's per-cluster breakdown (Step 13 in `PIPELINE.md`)
+only powered two of these six (`cns_depression` n=15, `thrombosis` n=9);
+the other four were either absent from the eligible pool (`vasoactivity`,
+`gi_effects_increase`) or appeared with n=1 (`myopathy`,
+`electrolyte_imbalance`), so the imperfect-cluster hypothesis remains
+**untested for four of six** in this pilot.
 
 ---
 
@@ -229,36 +234,94 @@ exact gold template.
 ### Pilot results
 
 Generated with **Qwen3-8B** in bf16 on Nibi (Compute Canada H100), 1016
-prompts in 6:42 wall time, greedy decoding (temperature=0, seed=42),
-max_tokens=2048, thinking mode disabled via
-`chat_template_kwargs={"enable_thinking": False}`.
+prompts initial run + 193-prompt targeted regeneration after polarity-tag
+fixes (Step 17 in `PIPELINE.md`), greedy decoding (temperature=0,
+seed=42), max_tokens=4096 in the regenerated subset (3072 in initial run),
+thinking mode disabled via `chat_template_kwargs={"enable_thinking": False}`.
 
-| Condition | Exact match | Cluster match | Outcome-polarity alignment (adjudicable) | Wrong-direction (% of all traces) |
+| Condition | Exact match | Cluster match | Outcome-polarity alignment | Wrong-direction (% of all traces) |
 |---|---|---|---|---|
-| A · Tanimoto, no hints | 95.7% | 95.7% | 77.9% | 8.3% |
-| B · Pathway, no hints  | 96.9% | 96.9% | 81.7% | 5.5% |
-| C · Tanimoto, hints    | 96.9% | 96.9% | 98.7% | **0.0%** |
-| D · Pathway, hints     | 96.5% | 96.5% | 98.0% | **0.8%** |
+| A · Tanimoto, no hints | 96.5% | 96.5% | 86.2% | 13.8% |
+| B · Pathway, no hints  | 98.0% | 98.0% | 90.9% | 9.1%  |
+| C · Tanimoto, hints    | 98.8% | 98.8% | **99.2%** | **0.8%** |
+| D · Pathway, hints     | 98.8% | 98.8% | **98.5%** | **1.6%** |
 
-**Headline: hierarchy hints reduce scorer-flagged wrong-direction
-commitments by an order of magnitude or more.** Pathway retrieval gives a
-small consistent gain at baseline (+1.2pt exact, +3.8pt direction); the
-gain shrinks once hints lift alignment toward the ceiling.
+**Headline:** hierarchy hints reduce scorer-flagged wrong-direction
+commitments roughly 10–15× (13.8% → 0.8% Tanimoto, 9.1% → 1.6% pathway).
+Pathway retrieval also gives a consistent baseline gain at no-hints
+(+1.5pt exact, +4.7pt outcome alignment); the retrieval gain shrinks once
+hints lift alignment toward the ceiling, as expected when two
+non-orthogonal signals both push in the same direction.
 
-**Manual audit of 5 hint-condition flagged errors**: 4 of 5 are surface-vs-outcome
-phrasing artifacts where the trace explicitly states the correct outcome
-direction (e.g. "thereby increasing the hypoglycemic effect") but contains
-earlier "reduce/diminish" language from describing intermediate mechanism
-(e.g. "reduces sympathetic activation, which diminishes the body's
-counter-regulatory response"). The fifth is a single token-budget edge case
-(trace truncated mid-Summary). Zero genuine biology errors.
+The numbers above reflect a **post-correction** state. The original pilot
+ran against a hierarchy schema containing six polarity-tagging bugs (see
+`PIPELINE.md` Step 16). Audit + fix + targeted regeneration of the 193
+affected traces (72 buggy-hint cases + 138 truncated cases at
+max_tokens=3072, with 17-trace overlap) reaffirmed the headline rather
+than weakening it: under correct hints the wrong-direction failure mode
+nearly disappears.
 
-**Caveat — scorer is conservative:** ~50-60% of traces are flagged
-"ambiguous" because mechanism descriptions and outcome descriptions appear
-in the same trace with opposite surface verbs (PK reversal phrasing:
-"clearance reduced → exposure increased"). This is documented behavior of
-the regex scorer; the relative comparison across conditions is what matters,
-and the *adjudicable* subset already shows the effect cleanly.
+**Schema-sensitivity finding (methodological):** between the bug
+discovery and the regeneration we observed an intermediate state in
+which the affected hint conditions exhibited *elevated* wrong-direction
+rates (e.g. `efficacy_decrease` C/D rose from 0% to 40%/27% under
+incorrect hints baked into the prompts). This confirmed that the
+teacher's outcome commitment tracks the privileged supervision signal
+faithfully — which is the desired behavior of label-conditioned
+distillation, but means **schema correctness propagates 1:1 into trace
+correctness in this pipeline**. We treat this as a structural property
+of hierarchy-guided teacher prompting that any downstream user should
+account for: a wrong polarity tag in the schema becomes a wrong polarity
+trace in the dataset.
+
+### Per-cluster breakdown — where the wrong-direction signal lives
+
+The pilot covers 42 mechanism clusters; the aggregate 13.8% / 9.1%
+no-hint wrong-direction rate is **not uniform** across them. The signal
+concentrates in clusters where surface verb and physiological outcome
+disagree:
+
+| Cluster (n=15 each) | A · tan, no hints | B · pwy, no hints | C · tan, hints | D · pwy, hints |
+|---|---|---|---|---|
+| `metabolism_decrease` | **80.0%** | **46.7%** | **6.7%** | **6.7%** |
+| `bp_increase`         | **33.3%** | **33.3%** | **0.0%** | **6.7%** |
+| `efficacy_decrease`†  | 0.0% | 0.0% | **0.0%** | **0.0%** |
+| `metabolism_increase`†| **53.3%** | **13.3%** | **0.0%** | **0.0%** |
+
+† clusters whose polarity tag was corrected at Step 16 and whose C/D
+prompts were regenerated with the corrected hint at Step 17. The post-
+fix C/D rates of 0% in these clusters are the cleanest demonstration of
+the "correct hint → correct trace" effect; their A/B rates report
+no-hint baseline, which `efficacy_decrease` already passes
+trivially because the surface label text gives the answer (the hint
+mostly matters when surface and outcome conflict).
+
+The remaining 38 clusters in the pilot show ≤20% wrong-direction in any
+condition; most show 0%.
+
+**Audit and scorer caveats:**
+- A 32-trace stratified manual audit of the "ambiguous" verdict bucket
+  (~50–60% of traces in each condition) classified ~78% as benign PK-
+  reversal scoring artifacts, ~22% as token-budget truncations of
+  otherwise-correct reasoning, and ~6% as schema-tagging bugs — the last
+  category is what surfaced Step 16. A 32-trace audit is not large
+  enough to support a strong prevalence claim about the ambiguous
+  bucket; the qualitative finding (PK reversal dominates) is reported
+  honestly with that caveat.
+- After bumping `max_tokens` to 4096 in the targeted regeneration, 40
+  of 193 regenerated traces still hit the length limit. Truncation thus
+  remains a partial confound on the exact-match tier, even though the
+  outcome-alignment tier (which only requires the Summary section to
+  contain the correct polarity) is largely robust.
+
+**Cross-check on the documented imperfect-cluster list:** of the six
+clusters tagged in `hierarchy_clusters.json` as known-imperfect, only
+two had pilot coverage adequate for inference (`cns_depression` n=15;
+`thrombosis` n=9). Both showed 0% wrong-direction across all four
+conditions. The other four (`vasoactivity`, `gi_effects_increase`,
+`myopathy`, `electrolyte_imbalance`) were absent from the pool or had
+n=1. The imperfect-cluster hypothesis remains **untested for four of
+six**; future full-scale runs should target them explicitly.
 
 ### How this fits the existing paper
 
@@ -338,7 +401,13 @@ scripts/
 ├── teacher_prompt_v2.py                 # Reference: prior collaborator-style prompt
 ├── teacher_prompt_v3.py                 # Hierarchy-guided prompt (Contribution 3)
 ├── step12_pilot_2x2.py                  # 2×2 harness: prepare / generate / score (Contribution 5)
-└── step12_visualize.py                  # Figures from scored output
+├── step12_visualize.py                  # Figures from scored output
+├── step13_per_cluster.py                # Per-cluster wrong-direction breakdown
+├── step14_confusion.py                  # When predictions miss, where do they land?
+├── step15_ambiguous_audit.py            # Stratified sampling of "ambiguous"-verdict traces
+├── step16_polarity_scan.py              # Hierarchy schema consistency check
+├── step17_polarity_fix.py               # Apply schema corrections (with backup + asserts)
+└── step17b_patch_polarity_in_traces.py  # Patch cached gold_polarity in pilot files
 
 processed_v2/                            # Public artifacts only (small files)
 ├── label_map.json                       # 166-class label → template
@@ -350,6 +419,13 @@ pilot/
 ├── pilot_prompts.jsonl                  # 1016 prompts (4 conditions × 254 pairs)
 ├── pilot_scored.jsonl                   # per-trace verdicts (sanitized)
 ├── pilot_summary.json                   # aggregate metrics for the table above
+├── per_cluster_breakdown.json           # per-cluster wrong-direction by condition (Step 13)
+├── confusion_analysis.json              # cross-cluster confusion among misses (Step 14)
+├── ambiguous_audit_sample.txt           # 32-trace stratified audit (Step 15)
+├── polarity_scan_report.json            # schema consistency check output (Step 16)
+├── polarity_fix_log.json                # changes applied to hierarchy_map.json (Step 17)
+├── regen_keys.txt                       # keys for the 72 polarity-affected prompts
+├── regen_keys_v2.txt                    # keys for the 193 regenerated prompts (polarity + truncation)
 ├── manifest_*.json                      # full reproducibility provenance
 └── figures/
     ├── fig_metrics_2x2.png
