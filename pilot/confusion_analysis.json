@@ -1,0 +1,29 @@
+{
+  "by_condition": {
+    "A_tan_nohints": {
+      "n": 254,
+      "hit": 243,
+      "miss_within": 0,
+      "miss_cross": 11
+    },
+    "B_pwy_nohints": {
+      "n": 254,
+      "hit": 246,
+      "miss_within": 0,
+      "miss_cross": 8
+    },
+    "C_tan_hints": {
+      "n": 254,
+      "hit": 246,
+      "miss_within": 0,
+      "miss_cross": 8
+    },
+    "D_pwy_hints": {
+      "n": 254,
+      "hit": 245,
+      "miss_within": 0,
+      "miss_cross": 9
+    }
+  },
+  "confusion_pairs": []
+}

@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-05-07T15:59:57.854206",
+  "backup": "hierarchy_map.json.bak_step17_20260507_155957",
+  "changes": [
+    {
+      "label_id": "5",
+      "l2": "efficacy_decrease",
+      "old_polarity": "increase",
+      "new_polarity": "decrease",
+      "reason": "efficacy_decrease: efficacy goes down"
+    },
+    {
+      "label_id": "7",
+      "l2": "metabolism_increase",
+      "old_polarity": "increase",
+      "new_polarity": "decrease",
+      "reason": "metabolism_increase: more metab -> less exposure (inversion)"
+    },
+    {
+      "label_id": "60",
+      "l2": "bp_decrease",
+      "old_polarity": "increase",
+      "new_polarity": "decrease",
+      "reason": "bp_decrease: more antihypertensive -> BP down"
+    },
+    {
+      "label_id": "114",
+      "l2": "bp_decrease",
+      "old_polarity": "increase",
+      "new_polarity": "decrease",
+      "reason": "bp_decrease: less hypertensive -> BP down"
+    },
+    {
+      "label_id": "134",
+      "l2": "bp_decrease",
+      "old_polarity": "increase",
+      "new_polarity": "decrease",
+      "reason": "bp_decrease: hypertension risk decreased"
+    },
+    {
+      "label_id": "39",
+      "l2": "infection",
+      "old_polarity": "n/a",
+      "new_polarity": "increase",
+      "reason": "infection: risk increased (template: The risk or severity of infection can be increased when #Dru)"
+    }
+  ]
+}

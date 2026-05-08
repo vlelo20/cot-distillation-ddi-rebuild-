@@ -1,0 +1,361 @@
+
+================================================================================
+#1  condition=A_tan_nohints  pair=DB01101__DB08951__81
+gold_l2=nephrotoxicity_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['enhances', 'increases', 'reduces']  source=summary
+label_text: Capecitabine may increase the nephrotoxic activities of Indoprofen.
+
+[SUMMARY ONLY]
+## Summary  
+Capecitabine increases the nephrotoxic activities of Indoprofen by inhibiting CYP2C9, which reduces Indoprofen's metabolism and enhances its renal vasoconstrictive effects.
+
+================================================================================
+#2  condition=A_tan_nohints  pair=DB08951__DB12371__9
+gold_l2=bp_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['elevated', 'enhance', 'increases', 'reduces']  source=summary
+label_text: The risk or severity of hypertension can be increased when Indoprofen is combined with Siponimod.
+
+[SUMMARY ONLY]
+## Summary  
+The combination of Indoprofen and Siponimod increases the risk of hypertension through synergistic pharmacodynamic effects: Indoprofen reduces prostaglandin-mediated vasodilation and sodium excretion, while Siponimod’s modulation of S1P receptors may enhance vascular resistance, leading to elevated blood pressure.
+
+================================================================================
+#3  condition=A_tan_nohints  pair=DB01467__DB11130__69
+gold_l2=analgesia  gold_polarity=increase
+direction_extracted=mixed  evidence=['enhance', 'enhanced', 'increase', 'increased', 'increases', 'reduce', 'reduced', 'reduces']  source=fallback_fulltext
+label_text: 2,5-Dimethoxy-4-ethylamphetamine may increase the analgesic activities of Opium.
+
+[SUMMARY ONLY]
+## Summary  
+2,5-Dimethoxy-4-ethylamphetamine inhibits 5-HT2A receptors, reducing serotonin’s inhibitory effect on opioid pathways and thereby increasing Opium’s analgesic activity.
+
+================================================================================
+#4  condition=A_tan_nohints  pair=DB00252__DB17472__16
+gold_l2=exposure_decrease  gold_polarity=decrease
+direction_extracted=mixed  evidence=['increases', 'decrease']  source=summary
+label_text: The serum concentration of Pirtobrutinib can be decreased when it is combined with Phenytoin.
+
+[SUMMARY ONLY]
+## Summary  
+Phenytoin induces CYP3A4, which increases the metabolism of Pirtobrutinib, leading to a decrease in its serum concentration.
+
+================================================================================
+#5  condition=A_tan_nohints  pair=DB00740__DB01412__13
+gold_l2=exposure_decrease  gold_polarity=decrease
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'increases', 'decreased', 'decreases', 'lower', 'reduce', 'reduced']  source=fallback_fulltext
+label_text: Riluzole may increase the excretion rate of Theobromine which could result in a lower serum level and potentially a reduction in efficacy.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+ label says Riluzole increases excretion. So that's conflicting. 
+
+Alternatively, maybe the interaction is via another mechanism. Let me think about the targets. Theobromine is an antagonist of adenosine receptors A1 and A2a, and an inhibitor of phosphodiesterase. Riluzole's targets are sodium channels and cystine/glutamate transporter. Not sure if that's relevant. 
+
+Wait, the key enzymes for Theobromine are CYP1A2 and CYP2E1. Riluzole is a substrate for CYP1A2. If Riluzole is a substrate for CYP1A2, and if Riluzole is an inhibitor of CYP1A2, then it would reduce the metabolism of Theobromine,
+
+================================================================================
+#6  condition=A_tan_nohints  pair=DB00316__DB14921__16
+gold_l2=exposure_decrease  gold_polarity=decrease
+direction_extracted=mixed  evidence=['enhances', 'increase', 'increased', 'increases', 'decrease', 'decreased', 'decreases', 'lower']  source=fallback_fulltext
+label_text: The serum concentration of Acetaminophen can be decreased when it is combined with Mavacamten.
+
+[SUMMARY ONLY]
+## Summary  
+Mavacamten induces CYP3A4, increasing the metabolism of Acetaminophen and reducing its serum concentration.
+
+================================================================================
+#7  condition=A_tan_nohints  pair=DB00483__DB06726__34
+gold_l2=bradycardia  gold_polarity=increase
+direction_extracted=mixed  evidence=['enhances', 'higher', 'increase', 'increased', 'increases', 'decrease', 'reduce', 'reduced', 'reduces']  source=fallback_fulltext
+label_text: Gallamine triethiodide may increase the bradycardic activities of Bufuralol.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+ancing parasympathetic activity through acetylcholinesterase inhibition. 
+
+But I need to make sure that this is the correct mechanism. Since there are no shared enzymes or transporters, the interaction must be pharmacodynamic. The key is that Gallamine's effect on acetylcholinesterase leads to increased acetylcholine, which enhances the parasympathetic effect, and Bufuralol's beta-blockade reduces sympathetic activity. The combination leads to more bradycardia. 
+
+Therefore, the reasoning steps would be:
+
+1. Gallamine triethiodide inhibits acetylcholinesterase, increasing acetylcholine levels.
+
+
+================================================================================
+#8  condition=A_tan_nohints  pair=DB06764__DB13612__9
+gold_l2=bp_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['amplifies', 'reduces']  source=summary
+label_text: The risk or severity of hypertension can be increased when Tetryzoline is combined with Carbaspirin calcium.
+
+[SUMMARY ONLY]
+## Summary  
+Carbaspirin calcium reduces the production of vasodilatory prostaglandins, which amplifies the vasoconstrictive effect of Tetryzoline, increasing the risk of hypertension.
+
+================================================================================
+#9  condition=B_pwy_nohints  pair=DB00285__DB14960__7
+gold_l2=metabolism_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['enhanced', 'increases', 'reduced']  source=summary
+label_text: The metabolism of Venlafaxine can be increased when combined with Somatrogon.
+
+[SUMMARY ONLY]
+## Summary  
+Somatrogon increases the metabolism of Venlafaxine, leading to reduced plasma levels due to enhanced hepatic enzyme activity.
+
+================================================================================
+#10  condition=B_pwy_nohints  pair=DB01135__DB12605__43
+gold_l2=neuromuscular_blockade_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['amplifies', 'reduces']  source=summary
+label_text: Etripamil may increase the neuromuscular blocking activities of Doxacurium.
+
+[SUMMARY ONLY]
+## Summary  
+Etripamil reduces acetylcholine release by blocking L-type calcium channels, which amplifies Doxacurium’s neuromuscular blocking activity.
+
+================================================================================
+#11  condition=B_pwy_nohints  pair=DB01211__DB11613__3
+gold_l2=metabolism_decrease  gold_polarity=increase
+direction_extracted=mixed  evidence=['increased', 'decreased']  source=summary
+label_text: The metabolism of Velpatasvir can be decreased when combined with Clarithromycin.
+
+[SUMMARY ONLY]
+## Summary  
+Clarithromycin inhibits CYP3A4, leading to decreased metabolism of Velpatasvir. This results in increased serum concentrations of Velpatasvir.
+
+================================================================================
+#12  condition=B_pwy_nohints  pair=DB00320__DB01283__9
+gold_l2=bp_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['amplifies', 'increased', 'reduces']  source=summary
+label_text: The risk or severity of hypertension can be increased when Dihydroergotamine is combined with Lumiracoxib.
+
+[SUMMARY ONLY]
+## Summary  
+Lumiracoxib reduces the production of vasodilatory prostaglandins, which amplifies the vasoconstrictive effects of Dihydroergotamine, leading to increased hypertension.
+
+================================================================================
+#13  condition=B_pwy_nohints  pair=DB00914__DB12161__3
+gold_l2=metabolism_decrease  gold_polarity=increase
+direction_extracted=mixed  evidence=['accumulates', 'higher', 'increased', 'decreased', 'reduce', 'reduced', 'reduces', 'suppressed']  source=fallback_fulltext
+label_text: The metabolism of Deutetrabenazine can be decreased when combined with Phenformin.
+
+[SUMMARY ONLY]
+## Summary  
+Phenformin inhibits CYP2D6, reducing the metabolism of Deutetrabenazine and increasing its plasma levels.
+
+================================================================================
+#14  condition=B_pwy_nohints  pair=DB00554__DB09261__18
+gold_l2=hyperkalemia  gold_polarity=increase
+direction_extracted=mixed  evidence=['increases', 'reduces']  source=summary
+label_text: The risk or severity of hyperkalemia can be increased when Piroxicam is combined with Certoparin.
+
+[SUMMARY ONLY]
+## Summary  
+The combination of Piroxicam and Certoparin increases the risk of hyperkalemia by synergistically impairing renal potassium excretion. Piroxicam's COX inhibition reduces prostaglandin-mediated renal perfusion, while Certoparin's anticoagulant effects may further compromise renal function, leading to potassium retention.
+
+================================================================================
+#15  condition=B_pwy_nohints  pair=DB01467__DB11130__69
+gold_l2=analgesia  gold_polarity=increase
+direction_extracted=mixed  evidence=['increases', 'reduce']  source=summary
+label_text: 2,5-Dimethoxy-4-ethylamphetamine may increase the analgesic activities of Opium.
+
+[SUMMARY ONLY]
+## Summary  
+2,5-Dimethoxy-4-ethylamphetamine increases the analgesic activity of Opium by inhibiting 5-HT2A receptors, which modulate pain pathways and reduce serotonergic inhibition of opioid effects.
+
+================================================================================
+#16  condition=B_pwy_nohints  pair=DB00934__DB14011__2
+gold_l2=adverse_effects_generic  gold_polarity=increase
+direction_extracted=mixed  evidence=['increased', 'increases', 'decreased']  source=fallback_fulltext
+label_text: The risk or severity of adverse effects can be increased when Nabiximols is combined with Maprotiline.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+mes for Nabiximols don't list CYP2D6 as an inhibitor. Wait, the key enzymes for Nabiximols are substrates for CYP2C9, 2C19, 3A4, 3A5, and CYP2D6. So Nabiximols is a substrate for CYP2D6. Therefore, it's being metabolized by CYP2D6. If Nabiximols is a substrate for CYP2D6, then it's being metabolized by that enzyme. However, if Nabiximols is not an inhibitor of CYP2D6, then it wouldn't affect the metabolism of Maprotiline. But the interaction is that Nabiximols increases the risk of adverse effects. So maybe the adverse effects are due to additive anticholinergic effects. Maprotiline has antich
+
+================================================================================
+#17  condition=C_tan_hints  pair=DB00699__DB06654__9
+gold_l2=bp_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'increases', 'reduce', 'reduced', 'reduces']  source=fallback_fulltext
+label_text: The risk or severity of hypertension can be increased when Nicergoline is combined with Safinamide.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+is on both drugs, so both contribute. 
+
+Alternatively, maybe the interaction is through a different mechanism. Let me think again. 
+
+The key enzymes for Nicergoline are CYP2D6 (substrate). Safinamide inhibits CYP2D6. So if Safinamide is present, it would inhibit the metabolism of Nicergoline, leading to higher plasma levels. Higher levels of Nicergoline would mean more alpha-1A blockade, leading to vasodilation. But the label says increased hypertension. 
+
+This seems contradictory. Unless there's another mechanism. 
+
+Wait, maybe the interaction is not through metabolism but through a different
+
+================================================================================
+#18  condition=C_tan_hints  pair=DB00612__DB13863__14
+gold_l2=efficacy_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['enhance', 'enhanced', 'enhances', 'higher', 'increase', 'increased', 'increases', 'more drug', 'reduce', 'reduced', 'reduces']  source=fallback_fulltext
+label_text: The therapeutic efficacy of Fosfructose can be increased when used in combination with Bisoprolol.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+icacy. Maybe the metadata is referring to the fact that the change in Bisoprolol's pharmacology (its beta-blockade) leads to the increased efficacy of Fosfructose. So the affected drug is Bisoprolol in the sense that its action causes the change in Fosfructose. 
+
+I think that's the correct interpretation. So the summary would be: The therapeutic efficacy of Fosfructose increases due to Bisoprolol's beta-blockade, which reduces sympathetic activity, enhancing Fosfructose's effect. 
+
+But the metadata says the direction is INCREASE and the affected drug is Drug 1 (Bisoprolol). So the change is in
+
+================================================================================
+#19  condition=C_tan_hints  pair=DB00218__DB09564__14
+gold_l2=efficacy_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['enhances', 'higher', 'increase', 'increased', 'increases', 'decrease', 'lower', 'reduce', 'reduced']  source=fallback_fulltext
+label_text: The therapeutic efficacy of Insulin degludec can be increased when used in combination with Moxifloxacin.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+nhibits CYP1A2, then the induction by Insulin degludec is reduced, leading to lower metabolism of other drugs. But how does that affect insulin's efficacy? 
+
+Alternatively, maybe the interaction is through a different mechanism. For example, if Moxifloxacin affects the degradation of insulin. But the key enzymes for Moxifloxacin don't include the insulin-degrading enzyme. 
+
+I think I need to proceed with the information given. The key enzymes for Moxifloxacin are CYP1A2 (inhibitor), and for Insulin degludec, CYP1A2 is an inducer. So when combined, Moxifloxacin inhibits CYP1A2, which is induced
+
+================================================================================
+#20  condition=C_tan_hints  pair=DB08868__DB09091__52
+gold_l2=immunosuppression  gold_polarity=increase
+direction_extracted=mixed  evidence=['enhances', 'higher', 'increase', 'increased', 'increases', 'more drug', 'reduces']  source=fallback_fulltext
+label_text: Tixocortol may increase the immunosuppressive activities of Fingolimod.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+hat Tixocortol's immunosuppressive activity increases when combined with Fingolimod. The mechanism could be that Tixocortol's effect on the immune system (via glucocorticoid receptor) enhances the immunosuppressive effects of Fingolimod. But the metadata says the affected drug is Tixocortol. 
+
+Alternatively, maybe Tixocortol's own activity is increased due to some pharmacodynamic interaction. For example, if Tixocortol's binding to the glucocorticoid receptor leads to a change in the immune environment that makes Fingolimod more effective. But the metadata says the affected drug is Tixocortol.
+
+================================================================================
+#21  condition=C_tan_hints  pair=DB00588__DB11979__3
+gold_l2=metabolism_decrease  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'more drug', 'decrease', 'decreased', 'lower']  source=fallback_fulltext
+label_text: The metabolism of Elagolix can be decreased when combined with Fluticasone propionate.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+luticasone propionate. 
+
+But the label says Elagolix's metabolism is decreased, which would mean that Fluticasone propionate is inhibiting the metabolism of Elagolix. 
+
+This is very conflicting. Given the time I've spent and the confusion, I'll proceed with the label's information, even if the metadata seems conflicting. 
+
+So, the label says Elagolix's metabolism is decreased when combined with Fluticasone propionate. That means Fluticasone propionate is an inhibitor of the enzymes that metabolize Elagolix. 
+
+Looking at the key enzymes for Fluticasone propionate: it's a substrate for CYP3A4, C
+
+================================================================================
+#22  condition=C_tan_hints  pair=DB01214__DB04842__25
+gold_l2=arrhythmia  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'increases', 'more drug', 'reduce', 'reduces']  source=fallback_fulltext
+label_text: Fluspirilene may increase the arrhythmogenic activities of Metipranolol.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+natively, maybe the interaction is that Fluspirilene's effect on dopamine receptors leads to increased sympathetic activity, which when combined with Metipranolol's beta blockade, causes arrhythmias. 
+
+But again, the metadata says the affected drug is Fluspirilene. 
+
+I think the best approach is to follow the metadata and state that Fluspirilene's pharmacology (inhibiting calcium channels) leads to increased arrhythmogenic activity, even if the label is phrased as affecting Metipranolol. 
+
+So the summary would be: Fluspirilene increases the arrhythmogenic activity of Metipranolol by inhibiting
+
+================================================================================
+#23  condition=C_tan_hints  pair=DB01087__DB09026__3
+gold_l2=metabolism_decrease  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'increases', 'more drug', 'decrease', 'decreased', 'decreases', 'lower', 'reduced']  source=fallback_fulltext
+label_text: The metabolism of Aliskiren can be decreased when combined with Primaquine.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+ading to increased levels of Aliskiren. The direction is INCREASE (higher levels of Aliskiren), and the affected drug is Aliskiren (Drug 2). But the metadata says the affected drug is Drug 1. 
+
+This is conflicting, but I'll proceed with the label's information as it's more specific. 
+
+So, the reasoning would be that Primaquine inhibits CYP3A4 and ABCB1, which are enzymes and transporters responsible for the metabolism of Aliskiren. This inhibition leads to decreased metabolism of Aliskiren, resulting in increased plasma levels of Aliskiren. The direction of effect is INCREASE (higher levels of
+
+================================================================================
+#24  condition=C_tan_hints  pair=DB00438__DB06543__5
+gold_l2=efficacy_decrease  gold_polarity=increase
+direction_extracted=mixed  evidence=['increased', 'decrease', 'reduces']  source=summary
+label_text: The therapeutic efficacy of Astaxanthin can be decreased when used in combination with Ceftazidime.
+
+[SUMMARY ONLY]
+## Summary  
+Ceftazidime’s increased efficacy (due to pharmacodynamic interactions) reduces the inflammatory burden, leading to a decrease in the therapeutic efficacy of Astaxanthin.
+
+================================================================================
+#25  condition=D_pwy_hints  pair=DB00564__DB08905__7
+gold_l2=metabolism_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increases', 'reduced']  source=summary
+label_text: The metabolism of Carbamazepine can be increased when combined with Formestane.
+
+[SUMMARY ONLY]
+## Summary  
+Formestane induces Cytochrome P450 3A4, which increases the metabolism of Carbamazepine, leading to higher drug clearance and reduced plasma levels.
+
+================================================================================
+#26  condition=D_pwy_hints  pair=DB01119__DB11730__3
+gold_l2=metabolism_decrease  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'decrease', 'decreased', 'decreases', 'reduced']  source=fallback_fulltext
+label_text: The metabolism of Diazoxide can be decreased when combined with Ribociclib.
+
+[SUMMARY ONLY]
+## Summary  
+Ribociclib inhibits CYP3A4, decreasing Diazoxide metabolism and increasing its plasma levels.
+
+================================================================================
+#27  condition=D_pwy_hints  pair=DB00351__DB00463__7
+gold_l2=metabolism_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increases', 'reduced']  source=summary
+label_text: The metabolism of Megestrol acetate can be increased when combined with Metharbital.
+
+[SUMMARY ONLY]
+## Summary  
+Metharbital increases the metabolism of Megestrol acetate by inducing CYP3A4, leading to higher drug clearance and reduced plasma levels of Megestrol acetate.
+
+================================================================================
+#28  condition=D_pwy_hints  pair=DB15011__DB18701__39
+gold_l2=infection  gold_polarity=n/a
+direction_extracted=None  evidence=[]  source=none
+label_text: The risk or severity of infection can be increased when Chikungunya vaccine (live, attenuated) is combined with Avacopan.
+
+[SUMMARY ONLY]
+## Summary  
+Avacopan's immunosuppressive activity reduces the immune response to the Chikungunya vaccine, increasing the risk of infection.
+
+================================================================================
+#29  condition=D_pwy_hints  pair=DB01427__DB08918__1
+gold_l2=exposure_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'increases', 'decrease', 'decreased', 'decreases', 'reduce', 'reduces']  source=fallback_fulltext
+label_text: Amrinone may decrease the excretion rate of Levomilnacipran which could result in a higher serum level.
+
+[SUMMARY ONLY]
+## Summary  
+Amrinone inhibits the ABCB1 transporter, reducing the excretion of Levomilnacipran and increasing its serum levels.
+
+================================================================================
+#30  condition=D_pwy_hints  pair=DB00218__DB09564__14
+gold_l2=efficacy_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increased', 'increases', 'decrease', 'lower', 'reduce', 'reduced']  source=fallback_fulltext
+label_text: The therapeutic efficacy of Insulin degludec can be increased when used in combination with Moxifloxacin.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+the induction by Insulin degludec is reduced by Moxifloxacin's inhibition, leading to lower CYP1A2 activity. However, if Insulin degludec's efficacy is increased, perhaps because its metabolism is reduced. 
+
+Wait, but if Insulin degludec is a CYP1A2 inducer, then it would induce CYP1A2, which could metabolize other drugs. If Moxifloxacin inhibits CYP1A2, then the induction by Insulin degludec would be counteracted, leading to lower CYP1A2 activity. But how does that affect the efficacy of Insulin degludec? 
+
+Alternatively, maybe the interaction is that Moxifloxacin's inhibition of CYP1A2 leads
+
+================================================================================
+#31  condition=D_pwy_hints  pair=DB00635__DB08996__1
+gold_l2=exposure_increase  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'reduces']  source=summary
+label_text: Prednisone may decrease the excretion rate of Dimetacrine which could result in a higher serum level.
+
+[SUMMARY ONLY]
+## Summary  
+Prednisone reduces the renal excretion of Dimetacrine by altering glomerular filtration, leading to higher serum levels of Dimetacrine.
+
+================================================================================
+#32  condition=D_pwy_hints  pair=DB01087__DB09026__3
+gold_l2=metabolism_decrease  gold_polarity=increase
+direction_extracted=mixed  evidence=['higher', 'increase', 'increases', 'more drug', 'decrease', 'decreased']  source=fallback_fulltext
+label_text: The metabolism of Aliskiren can be decreased when combined with Primaquine.
+
+[NO SUMMARY HEADER FOUND - last 600 chars]
+ction of effect refers to the effect on the affected drug (Primaquine), but the interaction is about Aliskiren. For example, Primaquine's pharmacology changes in a way that increases its own levels, which then affects Aliskiren's metabolism. But how? 
+
+This is really confusing. I think I need to proceed with the given metadata and the interaction label, even if there's some inconsistency. The interaction label is about Aliskiren's metabolism being decreased, which would mean that Primaquine is an inhibitor of the enzyme responsible for metabolizing Aliskiren. So, the mechanism would be that Pr

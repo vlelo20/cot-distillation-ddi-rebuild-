@@ -1,0 +1,1232 @@
+{
+  "per_cluster_condition": {
+    "absorption_decrease|A_tan_nohints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "absorption_decrease|B_pwy_nohints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "absorption_decrease|C_tan_hints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "absorption_decrease|D_pwy_hints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "adverse_effects_generic|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "adverse_effects_generic|B_pwy_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "adverse_effects_generic|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "adverse_effects_generic|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "analgesia|A_tan_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "analgesia|B_pwy_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "analgesia|C_tan_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "analgesia|D_pwy_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "anticoagulant_change_decrease|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "anticoagulant_change_decrease|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "anticoagulant_change_decrease|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "anticoagulant_change_decrease|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "antipsychotic_change|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "antipsychotic_change|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "antipsychotic_change|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "antipsychotic_change|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "arrhythmia|A_tan_nohints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 5,
+      "wrong_dir": 1
+    },
+    "arrhythmia|B_pwy_nohints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 5,
+      "wrong_dir": 1
+    },
+    "arrhythmia|C_tan_hints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "arrhythmia|D_pwy_hints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "bleeding|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 14,
+      "wrong_dir": 1
+    },
+    "bleeding|B_pwy_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "bleeding|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "bleeding|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "bp_decrease|A_tan_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 1,
+      "wrong_dir": 1
+    },
+    "bp_decrease|B_pwy_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 0,
+      "wrong_dir": 2
+    },
+    "bp_decrease|C_tan_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "bp_decrease|D_pwy_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "bp_increase|A_tan_nohints": {
+      "n": 15,
+      "exact": 14,
+      "cluster_match": 14,
+      "outcome_aligned": 10,
+      "wrong_dir": 5
+    },
+    "bp_increase|B_pwy_nohints": {
+      "n": 15,
+      "exact": 14,
+      "cluster_match": 14,
+      "outcome_aligned": 10,
+      "wrong_dir": 5
+    },
+    "bp_increase|C_tan_hints": {
+      "n": 15,
+      "exact": 13,
+      "cluster_match": 13,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "bp_increase|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 14,
+      "wrong_dir": 1
+    },
+    "bradycardia|A_tan_nohints": {
+      "n": 3,
+      "exact": 3,
+      "cluster_match": 3,
+      "outcome_aligned": 3,
+      "wrong_dir": 0
+    },
+    "bradycardia|B_pwy_nohints": {
+      "n": 3,
+      "exact": 3,
+      "cluster_match": 3,
+      "outcome_aligned": 3,
+      "wrong_dir": 0
+    },
+    "bradycardia|C_tan_hints": {
+      "n": 3,
+      "exact": 3,
+      "cluster_match": 3,
+      "outcome_aligned": 3,
+      "wrong_dir": 0
+    },
+    "bradycardia|D_pwy_hints": {
+      "n": 3,
+      "exact": 3,
+      "cluster_match": 3,
+      "outcome_aligned": 3,
+      "wrong_dir": 0
+    },
+    "cardiotoxicity_decrease|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "cardiotoxicity_decrease|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "cardiotoxicity_decrease|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "cardiotoxicity_decrease|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "cns_depression|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "cns_depression|B_pwy_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "cns_depression|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "cns_depression|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "dehydration|A_tan_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "dehydration|B_pwy_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "dehydration|C_tan_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "dehydration|D_pwy_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "diagnostic_efficacy|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "diagnostic_efficacy|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "diagnostic_efficacy|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "diagnostic_efficacy|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "efficacy_decrease|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "efficacy_decrease|B_pwy_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "efficacy_decrease|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "efficacy_decrease|D_pwy_hints": {
+      "n": 15,
+      "exact": 13,
+      "cluster_match": 13,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "efficacy_increase|A_tan_nohints": {
+      "n": 8,
+      "exact": 8,
+      "cluster_match": 8,
+      "outcome_aligned": 8,
+      "wrong_dir": 0
+    },
+    "efficacy_increase|B_pwy_nohints": {
+      "n": 8,
+      "exact": 8,
+      "cluster_match": 8,
+      "outcome_aligned": 7,
+      "wrong_dir": 1
+    },
+    "efficacy_increase|C_tan_hints": {
+      "n": 8,
+      "exact": 7,
+      "cluster_match": 7,
+      "outcome_aligned": 7,
+      "wrong_dir": 1
+    },
+    "efficacy_increase|D_pwy_hints": {
+      "n": 8,
+      "exact": 8,
+      "cluster_match": 8,
+      "outcome_aligned": 8,
+      "wrong_dir": 0
+    },
+    "electrolyte_imbalance|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "electrolyte_imbalance|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "electrolyte_imbalance|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "electrolyte_imbalance|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "exposure_decrease|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "exposure_decrease|B_pwy_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "exposure_decrease|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "exposure_decrease|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "exposure_increase|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 14,
+      "wrong_dir": 1
+    },
+    "exposure_increase|B_pwy_nohints": {
+      "n": 15,
+      "exact": 13,
+      "cluster_match": 13,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "exposure_increase|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "exposure_increase|D_pwy_hints": {
+      "n": 15,
+      "exact": 14,
+      "cluster_match": 14,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "extrapyramidal|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "extrapyramidal|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "extrapyramidal|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "extrapyramidal|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "hyperglycemia|A_tan_nohints": {
+      "n": 3,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 1
+    },
+    "hyperglycemia|B_pwy_nohints": {
+      "n": 3,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 1
+    },
+    "hyperglycemia|C_tan_hints": {
+      "n": 3,
+      "exact": 3,
+      "cluster_match": 3,
+      "outcome_aligned": 3,
+      "wrong_dir": 0
+    },
+    "hyperglycemia|D_pwy_hints": {
+      "n": 3,
+      "exact": 3,
+      "cluster_match": 3,
+      "outcome_aligned": 3,
+      "wrong_dir": 0
+    },
+    "hyperkalemia|A_tan_nohints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 5,
+      "wrong_dir": 0
+    },
+    "hyperkalemia|B_pwy_nohints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 4,
+      "wrong_dir": 1
+    },
+    "hyperkalemia|C_tan_hints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 5,
+      "wrong_dir": 0
+    },
+    "hyperkalemia|D_pwy_hints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 5,
+      "wrong_dir": 0
+    },
+    "hypoglycemia|A_tan_nohints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "hypoglycemia|B_pwy_nohints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "hypoglycemia|C_tan_hints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 6,
+      "wrong_dir": 0
+    },
+    "hypoglycemia|D_pwy_hints": {
+      "n": 6,
+      "exact": 6,
+      "cluster_match": 6,
+      "outcome_aligned": 5,
+      "wrong_dir": 1
+    },
+    "hypokalemia|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "hypokalemia|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "hypokalemia|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "hypokalemia|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "hypotension_increase|A_tan_nohints": {
+      "n": 13,
+      "exact": 13,
+      "cluster_match": 13,
+      "outcome_aligned": 13,
+      "wrong_dir": 0
+    },
+    "hypotension_increase|B_pwy_nohints": {
+      "n": 13,
+      "exact": 13,
+      "cluster_match": 13,
+      "outcome_aligned": 13,
+      "wrong_dir": 0
+    },
+    "hypotension_increase|C_tan_hints": {
+      "n": 13,
+      "exact": 13,
+      "cluster_match": 13,
+      "outcome_aligned": 13,
+      "wrong_dir": 0
+    },
+    "hypotension_increase|D_pwy_hints": {
+      "n": 13,
+      "exact": 13,
+      "cluster_match": 13,
+      "outcome_aligned": 13,
+      "wrong_dir": 0
+    },
+    "immunosuppression|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "immunosuppression|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "immunosuppression|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "immunosuppression|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "infection|A_tan_nohints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 2,
+      "wrong_dir": 2
+    },
+    "infection|B_pwy_nohints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 2,
+      "wrong_dir": 2
+    },
+    "infection|C_tan_hints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 4,
+      "wrong_dir": 0
+    },
+    "infection|D_pwy_hints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 3,
+      "wrong_dir": 1
+    },
+    "metabolism_decrease|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 3,
+      "wrong_dir": 12
+    },
+    "metabolism_decrease|B_pwy_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 8,
+      "wrong_dir": 7
+    },
+    "metabolism_decrease|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 14,
+      "wrong_dir": 1
+    },
+    "metabolism_decrease|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 14,
+      "wrong_dir": 1
+    },
+    "metabolism_increase|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 7,
+      "wrong_dir": 8
+    },
+    "metabolism_increase|B_pwy_nohints": {
+      "n": 15,
+      "exact": 14,
+      "cluster_match": 14,
+      "outcome_aligned": 13,
+      "wrong_dir": 2
+    },
+    "metabolism_increase|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "metabolism_increase|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "methemoglobinemia|A_tan_nohints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 9,
+      "wrong_dir": 0
+    },
+    "methemoglobinemia|B_pwy_nohints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 8,
+      "wrong_dir": 1
+    },
+    "methemoglobinemia|C_tan_hints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 9,
+      "wrong_dir": 0
+    },
+    "methemoglobinemia|D_pwy_hints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 9,
+      "wrong_dir": 0
+    },
+    "myopathy|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "myopathy|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "myopathy|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "myopathy|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "nephrotoxicity_increase|A_tan_nohints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 4,
+      "wrong_dir": 1
+    },
+    "nephrotoxicity_increase|B_pwy_nohints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 5,
+      "wrong_dir": 0
+    },
+    "nephrotoxicity_increase|C_tan_hints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 5,
+      "wrong_dir": 0
+    },
+    "nephrotoxicity_increase|D_pwy_hints": {
+      "n": 5,
+      "exact": 5,
+      "cluster_match": 5,
+      "outcome_aligned": 5,
+      "wrong_dir": 0
+    },
+    "neuromuscular_blockade_increase|A_tan_nohints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 3,
+      "wrong_dir": 1
+    },
+    "neuromuscular_blockade_increase|B_pwy_nohints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 4,
+      "wrong_dir": 0
+    },
+    "neuromuscular_blockade_increase|C_tan_hints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 4,
+      "wrong_dir": 0
+    },
+    "neuromuscular_blockade_increase|D_pwy_hints": {
+      "n": 4,
+      "exact": 4,
+      "cluster_match": 4,
+      "outcome_aligned": 4,
+      "wrong_dir": 0
+    },
+    "neurotoxic|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "neurotoxic|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "neurotoxic|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "neurotoxic|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "protein_binding_decrease|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "protein_binding_decrease|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "protein_binding_decrease|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "protein_binding_decrease|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "qt_prolongation_increase|A_tan_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "qt_prolongation_increase|B_pwy_nohints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "qt_prolongation_increase|C_tan_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "qt_prolongation_increase|D_pwy_hints": {
+      "n": 15,
+      "exact": 15,
+      "cluster_match": 15,
+      "outcome_aligned": 15,
+      "wrong_dir": 0
+    },
+    "sedation_decrease|A_tan_nohints": {
+      "n": 1,
+      "exact": 0,
+      "cluster_match": 0,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "sedation_decrease|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "sedation_decrease|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "sedation_decrease|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "sedation_increase|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "sedation_increase|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "sedation_increase|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "sedation_increase|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "serotonergic|A_tan_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "serotonergic|B_pwy_nohints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "serotonergic|C_tan_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "serotonergic|D_pwy_hints": {
+      "n": 2,
+      "exact": 2,
+      "cluster_match": 2,
+      "outcome_aligned": 2,
+      "wrong_dir": 0
+    },
+    "stimulant_change|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "stimulant_change|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "stimulant_change|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "stimulant_change|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "tachycardia|A_tan_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "tachycardia|B_pwy_nohints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "tachycardia|C_tan_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "tachycardia|D_pwy_hints": {
+      "n": 1,
+      "exact": 1,
+      "cluster_match": 1,
+      "outcome_aligned": 1,
+      "wrong_dir": 0
+    },
+    "thrombosis|A_tan_nohints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 8,
+      "wrong_dir": 1
+    },
+    "thrombosis|B_pwy_nohints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 9,
+      "wrong_dir": 0
+    },
+    "thrombosis|C_tan_hints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 9,
+      "wrong_dir": 0
+    },
+    "thrombosis|D_pwy_hints": {
+      "n": 9,
+      "exact": 9,
+      "cluster_match": 9,
+      "outcome_aligned": 9,
+      "wrong_dir": 0
+    }
+  },
+  "documented_imperfect": [
+    "cns_depression",
+    "electrolyte_imbalance",
+    "gi_effects_increase",
+    "myopathy",
+    "thrombosis",
+    "vasoactivity"
+  ],
+  "clusters_seen": [
+    "absorption_decrease",
+    "adverse_effects_generic",
+    "analgesia",
+    "anticoagulant_change_decrease",
+    "antipsychotic_change",
+    "arrhythmia",
+    "bleeding",
+    "bp_decrease",
+    "bp_increase",
+    "bradycardia",
+    "cardiotoxicity_decrease",
+    "cns_depression",
+    "dehydration",
+    "diagnostic_efficacy",
+    "efficacy_decrease",
+    "efficacy_increase",
+    "electrolyte_imbalance",
+    "exposure_decrease",
+    "exposure_increase",
+    "extrapyramidal",
+    "hyperglycemia",
+    "hyperkalemia",
+    "hypoglycemia",
+    "hypokalemia",
+    "hypotension_increase",
+    "immunosuppression",
+    "infection",
+    "metabolism_decrease",
+    "metabolism_increase",
+    "methemoglobinemia",
+    "myopathy",
+    "nephrotoxicity_increase",
+    "neuromuscular_blockade_increase",
+    "neurotoxic",
+    "protein_binding_decrease",
+    "qt_prolongation_increase",
+    "sedation_decrease",
+    "sedation_increase",
+    "serotonergic",
+    "stimulant_change",
+    "tachycardia",
+    "thrombosis"
+  ]
+}
