@@ -76,7 +76,7 @@ work has three defects that meaningfully affect a CoT distillation study:
 - 166 templates covering 99.85% of pairs
 - Class imbalance reduced from 8,837:1 (TDC version) to 3,637:1
 
-Reproducibility: all 17 numbered pipeline steps are in `scripts/` and run
+Reproducibility: all 11 numbered pipeline steps are in `scripts/` and run
 sequentially from raw `drugbank_full.xml`. `PIPELINE.md` documents each step's
 inputs, outputs, and timing.
 
