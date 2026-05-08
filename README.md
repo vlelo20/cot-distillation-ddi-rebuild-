@@ -67,7 +67,7 @@ work has three defects that meaningfully affect a CoT distillation study:
 |---|---|---|
 | Text / label_text contamination | Rows where the text described one interaction but the label referenced another | Extract templates *from* descriptions, not apply them post-hoc |
 | Broken coarse_category | 70+ of 129 labels lumped into "other" while mechanistically equivalent labels were in separate buckets | Build a fresh 71-cluster hierarchy (Contribution 2) |
-| Class count mismatch | Paper claims 86 (TDC); inherited preprocessing has 129; actual extractable from full DrugBank: **166** | Re-extract templates with `MIN_COUNT=50`, achieve 99.85% coverage |
+| Class count mismatch | inherited preprocessing has 129; actual extractable from full DrugBank: **166** | Re-extract templates with `MIN_COUNT=50`, achieve 99.85% coverage |
 
 **Evidence from rebuild:**
 - 19,857 drugs parsed
