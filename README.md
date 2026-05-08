@@ -38,8 +38,8 @@ Specifically:
    mechanistically-relevant neighbors**, especially for tail labels.
 3. Can we tell the teacher *what direction the interaction goes* via
    structured metadata derived from a pharmacological hierarchy, before it
-   writes the rationale? **Yes — and it eliminates wrong-direction
-   commitments almost entirely.**
+   writes the rationale? **Yes — and it assists in eliminating wrong-direction
+   commitments.
 
 ---
 
